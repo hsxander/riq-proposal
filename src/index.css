@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 270 8% 97%;
+    --foreground: 278 42% 10%;
+
+    --card: 270 8% 96%;
+    --card-foreground: 278 42% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 278 42% 10%;
+
+    --primary: 278 42% 10%;
+    --primary-foreground: 270 8% 97%;
+
+    --secondary: 270 10% 92%;
+    --secondary-foreground: 278 42% 10%;
+
+    --muted: 270 8% 93%;
+    --muted-foreground: 278 15% 40%;
+
+    --accent: 46 100% 45%;
+    --accent-foreground: 278 42% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 270 10% 88%;
+    --input: 270 10% 88%;
+    --ring: 46 100% 45%;
+
+    --radius: 0.5rem;
+
+    /* Brand tokens */
+    --indigo: 278 42% 10%;
+    --indigo-light: 278 30% 20%;
+    --indigo-mid: 278 35% 15%;
+    --indigo-soft: 278 18% 30%;
+    --purple-muted: 278 12% 45%;
+    --purple-light: 275 15% 55%;
+    --purple-pale: 270 12% 94%;
+
+    --gold: 46 100% 45%;
+    --gold-light: 46 85% 55%;
+    --gold-muted: 46 30% 88%;
+    --gold-deep: 40 90% 38%;
+
+    --surface: 270 8% 97%;
+    --surface-mid: 270 8% 93%;
+    --surface-warm: 268 10% 95%;
+    --surface-dark: 270 8% 78%;
+
+    --font-display: 'Aptos', 'Segoe UI', 'Helvetica Neue', system-ui, sans-serif;
+    --font-body: 'Aptos', 'Segoe UI', 'Helvetica Neue', system-ui, sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 md:px-10 lg:px-16;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  .heading-display {
+    font-family: var(--font-display);
+    @apply text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.08] tracking-tight;
+    color: hsl(var(--indigo));
+  }
+
+  .heading-section {
+    font-family: var(--font-display);
+    @apply text-3xl md:text-4xl lg:text-[2.75rem] font-semibold leading-[1.12] tracking-tight;
+    color: hsl(var(--indigo));
+  }
+
+  .heading-sub {
+    font-family: var(--font-display);
+    @apply text-xl md:text-2xl font-medium leading-snug;
+    color: hsl(var(--indigo));
+  }
+
+  .body-large {
+    @apply text-lg md:text-xl leading-[1.7];
+    color: hsl(var(--indigo-light));
+  }
+
+  .body-regular {
+    @apply text-base leading-[1.7];
+    color: hsl(var(--muted-foreground));
+  }
+
+  .label-caps {
+    @apply text-[0.7rem] md:text-xs font-bold uppercase;
+    color: hsl(var(--gold));
+    letter-spacing: 0.2em;
+  }
+
+  .card-elevated {
+    @apply border border-border p-7 md:p-9;
+    border-radius: 2px;
+    background: hsl(var(--card));
+    box-shadow: 0 1px 2px 0 hsl(var(--indigo) / 0.03), 0 8px 24px -8px hsl(var(--indigo) / 0.06);
+  }
+
+  .card-indigo {
+    @apply p-7 md:p-9;
+    border-radius: 2px;
+    background: hsl(var(--indigo));
+    color: hsl(var(--surface));
+  }
+
+  .gold-badge {
+    @apply inline-flex items-center px-3 py-1 text-[0.7rem] font-bold tracking-wide uppercase;
+    border-radius: 1px;
+    background: hsl(var(--gold-muted));
+    color: hsl(var(--gold-deep));
+    letter-spacing: 0.05em;
+  }
+
+  .stat-large {
+    font-family: var(--font-display);
+    @apply text-3xl md:text-4xl font-bold;
+    color: hsl(var(--gold));
+  }
+
+  .divider-subtle {
+    @apply w-full h-px;
+    background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
+  }
+
+  .divider-editorial {
+    @apply w-full;
+    height: 1px;
+    background: linear-gradient(90deg, hsl(var(--gold) / 0.4), hsl(var(--border)), transparent);
+  }
+
+  .section-bridge {
+    @apply py-6 md:py-8;
+  }
+
+  .section-bridge-text {
+    font-family: var(--font-display);
+    @apply text-xl md:text-2xl lg:text-[1.75rem] font-medium leading-snug italic;
+    color: hsl(var(--gold-deep));
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300;
+    border-radius: 2px;
+    background: hsl(var(--indigo));
+    color: hsl(var(--surface));
+    letter-spacing: 0.03em;
+  }
+  .btn-primary:hover {
+    background: hsl(var(--indigo-mid));
+    box-shadow: 0 8px 24px hsl(var(--indigo) / 0.3);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold tracking-wide border transition-all duration-300;
+    border-radius: 2px;
+    border-color: hsl(var(--indigo) / 0.25);
+    color: hsl(var(--indigo));
+    letter-spacing: 0.03em;
+  }
+  .btn-outline:hover {
+    border-color: hsl(var(--indigo));
+    background: hsl(var(--indigo));
+    color: hsl(var(--surface));
+  }
+
+  /* Gradient utilities */
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(278 42% 10%), hsl(275 35% 18%), hsl(270 28% 22%));
+  }
+
+  .gradient-gold-text {
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-accent-line {
+    background: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--gold) / 0.3), transparent);
+  }
+
+  /* Architectural backgrounds */
+  .bg-grid-fine {
+    background-image:
+      linear-gradient(hsl(var(--indigo) / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--indigo) / 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .bg-grid-dot {
+    background-image: radial-gradient(hsl(var(--indigo) / 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .bg-diagonal-lines {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 40px,
+      hsl(var(--indigo) / 0.015) 40px,
+      hsl(var(--indigo) / 0.015) 41px
+    );
+  }
+}
